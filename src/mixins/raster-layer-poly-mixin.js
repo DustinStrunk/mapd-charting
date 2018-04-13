@@ -180,7 +180,7 @@ export default function rasterLayerPolyMixin(_layer) {
       adjustOpacity(c, state.encoding.color.opacity)
     )
     return {
-      data: {
+      data: [{
         name: layerName,
         format: "polys",
         sql: parser.writeSQL({
@@ -195,7 +195,7 @@ export default function rasterLayerPolyMixin(_layer) {
             filtersInverse
           })
         })
-      },
+      }],
       scales: [
         {
           name: layerName + "_fillColor",
@@ -206,7 +206,7 @@ export default function rasterLayerPolyMixin(_layer) {
           default: "#D6D7D6"
         }
       ],
-      mark: {
+      marks: [{
         type: "polys",
         from: {
           data: layerName
@@ -233,7 +233,7 @@ export default function rasterLayerPolyMixin(_layer) {
           miterLimit:
             typeof state.mark === "object" ? state.mark.miterLimit : 10
         }
-      }
+      }]
     }
   }
 

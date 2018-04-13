@@ -1,7 +1,7 @@
 import { createParser } from "mapd-data-layer-2"
 import R from "ramda"
 
-const TABLE = "tweets_nov_feb"
+const TABLE = "tweets_nov_feb_60M"
 const MAP_STYLE = "mapbox://styles/mapbox/light-v8"
 const WIDTH = document.documentElement.clientWidth - 30
 const HEIGHT = Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - 200
@@ -13,8 +13,8 @@ let HeatLayer
 
 const Connector = new MapdCon()
   .protocol("http")
-  .host("mahakali.mapd.com")
-  .port("9092")
+  .host("localhost")
+  .port("1024")
   .dbName("mapd")
   .user("mapd")
   .password("HyperInteractive")
@@ -142,6 +142,7 @@ function rasterChart(cf) {
   RasterChart
     .con(Connector)
     .useLonLat(true)
+    .usePixelRatio(false)
     .height(HEIGHT)
     .width(WIDTH)
     .mapUpdateInterval(UPDATE_INTERVAL)

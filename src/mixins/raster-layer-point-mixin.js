@@ -321,7 +321,7 @@ export default function rasterLayerPointMixin(_layer) {
     const markType = getMarkType(state.config)
 
     return {
-      data: {
+      data: [{
         name: layerName,
         sql: parser.writeSQL({
           type: "root",
@@ -334,9 +334,9 @@ export default function rasterLayerPointMixin(_layer) {
             lastFilteredSize
           )
         })
-      },
+      }],
       scales: getScales(state.encoding, layerName),
-      mark: {
+      marks: [{
         type: markType === "circle" ? "points" : "symbol",
         from: {
           data: layerName
@@ -374,7 +374,7 @@ export default function rasterLayerPointMixin(_layer) {
                 height: size
               }
         )
-      }
+      }]
     }
   }
 
