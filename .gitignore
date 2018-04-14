@@ -13,6 +13,7 @@ docs
 *.iml
 .idea
 .project
+.vscode
 
 # vim files
 .*.swp
@@ -38,6 +39,9 @@ spec/index-browserify.html
 
 # font noise from some doc tool
 web/docs/public
+
+# yarn files
+yarn.lock
 
 # example libs
 example/js
